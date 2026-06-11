@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.page {
+  margin: 20px;
+}
+.left-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle-header-nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.middle-header-nav ul li {
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: rgb(0, 0, 61);
+}
+.middle-header-nav ul li:hover {
+  background-color: rgb(245, 237, 223);
+  cursor: pointer;
+}
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.right-header button,
+.hero-text button {
+  padding: 10px 25px;
+  border-radius: 7px;
+  background-color: rgb(0, 11, 58);
+  border: none;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+
+  margin-top: 20px;
+  padding-left: 60px;
+  padding-right: 0;
+  padding-top: 60px;
+  padding-bottom: 0;
+
+  background-color: rgb(245, 237, 223);
+}
+.hero-text {
+  flex: 1;
+}
+.hero-text h1 {
+  font-size: 65px;
+  width: 60%;
+  line-height: 1.4;
+
+  /* background-color: rgb(214, 140, 2); */
+}
+.hero-text p {
+  font-size: 20px;
+  font-weight: 700;
+
+  width: 30rem;
+  margin-bottom: 20px;
+}
+
+.hero-image {
+  /* flex: 1; */
+}
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+.categories-section {
+  margin: 20px 0;
+}
+.category-list {
+  display: flex;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+.categories-items {
+  text-align: center;
+}
+.categories-items img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 1px solid yellow;
+}
+.categories-items p {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.product-list {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.product-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+.product {
+  width: 240px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+
+  /* flex: 1 1 200px; */
+}
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+
+  border: 1px solid black;
+}
+.product h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  color: rgb(43, 43, 43);
+}
+.product p {
+  margin-bottom: 5px;
+
+  font-size: 23px;
+  font-weight: 700;
+}
+.product button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  background-color: rgb(1, 5, 65);
+  color: white;
+  border: none;
+  border-radius: 10px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product-plus-cart {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.product-list-box {
+  /* flex: 1; */
+  width: 100%;
+  /* background-color: yellow; */
+  padding: 10px;
+}
+.cart {
+  /* flex: 1; */
+  height: 600px;
+  width: 680px;
+  border: 1px solid black;
+  padding: 10px;
+}
+.empty-cart {
+  display: none;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-selected {
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* justify-content: space-between; */
+}
+.product-selected-image {
+  width: 120px;
+  height: 120px;
+  background-color: yellow;
+
+  border-radius: 20px;
+}
+.product-selected-image img {
+  width: 100%;
+}
+.product-name-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+.product-name-delete h3 {
+  font-size: 22px;
+}
+.product-selected-infos p {
+  font-size: 23px;
+  font-weight: 700;
+}
+.product-selected-infos button {
+  margin-top: 1px;
+}
