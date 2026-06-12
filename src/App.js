@@ -124,13 +124,13 @@ function Cart({ cart }) {
     <div className={cart.length === 0 ? "empty-cart" : "cart"}>
       <header className="cart-header">
         <h1>
-          Cart Space <span>(3)</span>
+          Cart Space <span>({cart.length})</span>
         </h1>
         <p>Delete</p>
       </header>
 
       <div>
-        {cart.map((item) => (
+        {cart.map((item, index) => (
           <div className="product-selected" key={item.id}>
             <div className="product-selected-image">
               <img src={item.image} alt={item.name} />
