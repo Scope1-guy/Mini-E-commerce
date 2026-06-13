@@ -27,25 +27,25 @@ export const productList = [
     id: 5,
     name: "Curren Watch",
     price: 25000,
-    image: require("./asset/cart.png"),
+    image: require("./Pictures/images14.jpeg"),
   },
   {
     id: 6,
     name: "Leather Handbag",
     price: 25000,
-    image: require("./asset/cart.png"),
+    image: require("./Pictures/images22.jpeg"),
   },
   {
     id: 7,
     name: "Air Jordan 1 Mid",
     price: 75000,
-    image: require("./asset/cart.png"),
+    image: require("./Pictures/hp_elitebook_mobile.jpg"),
   },
   {
     id: 8,
     name: "Curren Watch",
     price: 25000,
-    image: require("./asset/cart.png"),
+    image: require("./Pictures/images.jpeg"),
   },
 ];
 

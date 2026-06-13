@@ -71,7 +71,7 @@ code {
   margin-top: 20px;
   padding-left: 60px;
   padding-right: 0;
-  padding-top: 60px;
+  padding-top: 30px;
   padding-bottom: 0;
 
   background-color: rgb(245, 237, 223);
@@ -103,7 +103,7 @@ code {
   display: block;
 }
 .categories-section {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .category-list {
   display: flex;
@@ -121,7 +121,7 @@ code {
   border-radius: 50%;
   object-fit: cover;
 
-  border: 1px solid yellow;
+  border: 1px solid rgb(206, 206, 149);
 }
 .categories-items p {
   margin-top: 5px;
@@ -204,10 +204,12 @@ code {
 }
 .cart {
   /* flex: 1; */
-  height: 600px;
+  /* height: 600px; */
+  height: auto;
   width: 680px;
-  border: 1px solid black;
+  border: 1px solid rgb(231, 231, 231);
   padding: 10px;
+  overflow: scroll;
 }
 .empty-cart {
   display: none;
@@ -230,11 +232,11 @@ code {
 .product-selected-image {
   width: 120px;
   height: 120px;
-  background-color: yellow;
   overflow: hidden;
   object-fit: cover;
 
   border-radius: 20px;
+  border: 1px solid wheat;
 }
 .product-selected-image img {
   width: 100%;
@@ -244,15 +246,39 @@ code {
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 .product-name-delete h3 {
   font-size: 22px;
 }
-.product-selected-infos p {
+.product-selected-quantity {
+  margin-bottom: 15px;
+}
+.product-selected-price {
   font-size: 23px;
   font-weight: 700;
 }
 .product-selected-infos button {
   margin-top: 1px;
+}
+.subtotal-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.product-buy-button {
+  width: 100%;
+  padding: 20px;
+  font-size: 30px;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+}
+.whatsapp-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.5;
+  font-size: 25px;
+  font-weight: 700;
 }

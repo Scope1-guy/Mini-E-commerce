@@ -11,9 +11,26 @@ export default function App() {
 
     // setCart([...cart, product]);
     // or
-    setCart((prevCart) => [...prevCart, product]);
+    // setCart((prevCart) => [...prevCart, product]); //This add new product to cart even if the product exist
 
-    // console.log(cart);
+    const existingProduct = cart.find((item) => item.id === product.id); // finding the product in the cart
+
+    if (existingProduct) {
+      setCart(
+        cart.map((item) => {
+          if (item.id === product.id) {
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+            };
+          }
+
+          return item;
+        })
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
   }
 
   function handleDelete(id) {
@@ -25,6 +42,30 @@ export default function App() {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }
 
+  function handleWhatsappCheckout() {
+    const phoneNumber = "2348141396108";
+
+    const message = cart
+      .map((item) => {
+        return `- ${item.name} X ${item.quantity} = $${
+          item.price * item.quantity
+        }`;
+      })
+      .join("\n");
+
+    const total = cart.reduce((acc, item) => {
+      return acc + item.price * item.quantity;
+    }, 0);
+
+    const fullMessage = `Hello, I want to place an order: \n\n${message}\n\nTotal: $${total}`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      fullMessage
+    )}`;
+
+    window.open(url, "_blank");
+  }
+
   return (
     <div className="page">
       <Nav />
@@ -34,6 +75,7 @@ export default function App() {
         handleAddToCart={handleAddToCart}
         cart={cart}
         handleDelete={handleDelete}
+        handleWhatsappCheckout={handleWhatsappCheckout}
       />
     </div>
   );
@@ -96,11 +138,20 @@ function Categories() {
   );
 }
 
-function ProductPlusCart({ handleAddToCart, cart, handleDelete }) {
+function ProductPlusCart({
+  handleAddToCart,
+  cart,
+  handleDelete,
+  handleWhatsappCheckout,
+}) {
   return (
     <div className="product-plus-cart">
       <ProductList handleAddToCart={handleAddToCart} />
-      <Cart cart={cart} handleDelete={handleDelete} />
+      <Cart
+        cart={cart}
+        handleDelete={handleDelete}
+        handleWhatsappCheckout={handleWhatsappCheckout}
+      />
     </div>
   );
 }
@@ -132,8 +183,12 @@ function ProductList({ handleAddToCart }) {
   );
 }
 
-function Cart({ cart, handleDelete }) {
+function Cart({ cart, handleDelete, handleWhatsappCheckout }) {
   console.log(cart);
+
+  const subTotalCalc = cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
   return (
     <div className={cart.length === 0 ? "empty-cart" : "cart"}>
       <header className="cart-header">
@@ -144,7 +199,7 @@ function Cart({ cart, handleDelete }) {
       </header>
 
       <div>
-        {cart.map((item, index) => (
+        {cart.map((item) => (
           <div className="product-selected" key={item.id}>
             <div className="product-selected-image">
               <img src={item.image} alt={item.name} />
@@ -156,12 +211,30 @@ function Cart({ cart, handleDelete }) {
                 <button onClick={() => handleDelete(item.id)}>Delete</button>
               </div>
 
-              <p>{item.price}</p>
+              <p className="product-selected-quantity">
+                Quantity: {item.quantity}
+              </p>
+
+              <p className="product-selected-price">
+                ${item.price * item.quantity}
+              </p>
 
               <button>1+2</button>
             </div>
           </div>
         ))}
+
+        <div className="subtotal-div">
+          <h2>Subtotal</h2>
+          <p>{subTotalCalc}</p>
+        </div>
+
+        <button className="product-buy-button" onClick={handleWhatsappCheckout}>
+          I Want To Buy These
+        </button>
+        <div className="whatsapp-text">
+          This will open Whatsapp with your order details.
+        </div>
       </div>
     </div>
   );
