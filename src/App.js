@@ -13,7 +13,16 @@ export default function App() {
     // or
     setCart((prevCart) => [...prevCart, product]);
 
-    console.log(cart);
+    // console.log(cart);
+  }
+
+  function handleDelete(id) {
+    console.log(id);
+    // setCart(
+    //   cart.filter((item) => item.id !== id)
+    // )
+
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }
 
   return (
@@ -21,7 +30,11 @@ export default function App() {
       <Nav />
       <Hero />
       <Categories />
-      <ProductPlusCart handleAddToCart={handleAddToCart} cart={cart} />
+      <ProductPlusCart
+        handleAddToCart={handleAddToCart}
+        cart={cart}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 }
@@ -83,11 +96,11 @@ function Categories() {
   );
 }
 
-function ProductPlusCart({ handleAddToCart, cart }) {
+function ProductPlusCart({ handleAddToCart, cart, handleDelete }) {
   return (
     <div className="product-plus-cart">
       <ProductList handleAddToCart={handleAddToCart} />
-      <Cart cart={cart} />
+      <Cart cart={cart} handleDelete={handleDelete} />
     </div>
   );
 }
@@ -119,7 +132,8 @@ function ProductList({ handleAddToCart }) {
   );
 }
 
-function Cart({ cart }) {
+function Cart({ cart, handleDelete }) {
+  console.log(cart);
   return (
     <div className={cart.length === 0 ? "empty-cart" : "cart"}>
       <header className="cart-header">
@@ -139,7 +153,7 @@ function Cart({ cart }) {
             <div className="product-selected-infos">
               <div className="product-name-delete">
                 <h3>{item.name}</h3>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </div>
 
               <p>{item.price}</p>

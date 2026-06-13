@@ -1,0 +1,73 @@
+the_guyyy@Scope:~$ sudo dmidecode -t memory
+[sudo] password for the_guyyy:            
+# dmidecode 3.5
+Getting SMBIOS data from sysfs.
+SMBIOS 3.1.1 present.
+
+Handle 0x001E, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 64 GB
+	Error Information Handle: 0x0021
+	Number Of Devices: 2
+
+Handle 0x001F, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x001E
+	Error Information Handle: 0x0022
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: SODIMM
+	Set: None
+	Locator: DIMM 0
+	Bank Locator: P0 CHANNEL A
+	Type: DDR4
+	Type Detail: Synchronous Unbuffered (Unregistered)
+	Speed: 2400 MT/s
+	Manufacturer: Samsung
+	Serial Number: 00000000
+	Asset Tag: Not Specified
+	Part Number: M471A5244CB0-CRC    
+	Rank: 1
+	Configured Memory Speed: 2400 MT/s
+	Minimum Voltage: 1.2 V
+	Maximum Voltage: 1.2 V
+	Configured Voltage: 1.2 V
+
+Handle 0x0020, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x001E
+	Error Information Handle: 0x0023
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: Unknown
+	Set: None
+	Locator: DIMM 0
+	Bank Locator: P0 CHANNEL B
+	Type: Unknown
+	Type Detail: Unknown
+
+the_guyyy@Scope:~$ inxi -m
+Memory:
+  System RAM: total: 4 GiB available: 3.23 GiB used: 1.49 GiB (46.2%)
+  Array-1: capacity: 64 GiB note: check slots: 2 modules: 1 EC: None
+  Device-1: Channel-A DIMM 0 type: DDR4 size: 4 GiB speed: 2400 MT/s
+  Device-2: Channel-B DIMM 0 type: no module installed
+the_guyyy@Scope:~$ inxi -C
+CPU:
+  Info: quad core model: AMD Ryzen 5 2500U with Radeon Vega Mobile Gfx
+    bits: 64 type: MT MCP cache: L2: 2 MiB
+  Speed (MHz): avg: 1583 min/max: 1600/2000 cores: 1: 1600 2: 1597 3: 1600
+    4: 1600 5: 1600 6: 1600 7: 1468 8: 1600
+the_guyyy@Scope:~$ INXI -D
+INXI: command not found
+the_guyyy@Scope:~$ inxi -D
+Drives:
+  Local Storage: total: 465.76 GiB used: 114.96 GiB (24.7%)
+  ID-1: /dev/sda vendor: Western Digital model: WD5000LUCT-63RC2Y0
+    size: 465.76 GiB
+
