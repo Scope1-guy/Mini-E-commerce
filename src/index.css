@@ -65,6 +65,7 @@ code {
 
 .hero {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   /* align-items: center; */
 
@@ -261,10 +262,28 @@ code {
 .product-selected-infos button {
   margin-top: 1px;
 }
+.steps-count {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+.steps-count button {
+  width: 40px;
+}
+.steps-count p {
+  font-size: 20px;
+  font-weight: 700;
+}
 .subtotal-div {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.subtotal-div p {
+  font-size: 20px;
 }
 .product-buy-button {
   width: 100%;

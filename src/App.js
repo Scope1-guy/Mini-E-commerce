@@ -5,6 +5,16 @@ import { productList, categoriesList } from "./products.js";
 export default function App() {
   const [cart, setCart] = useState([]);
 
+  const [quantityForProduct, setQuantityForProduct] = useState(1);
+
+  function handleQuantityReduction() {
+    setQuantityForProduct(quantityForProduct - 1);
+  }
+
+  function handleQuantityAddition() {
+    setQuantityForProduct(quantityForProduct + 1);
+  }
+
   function handleAddToCart(product) {
     // console.log(`${product.name} was selected`);
     // console.log(product);
@@ -21,7 +31,8 @@ export default function App() {
           if (item.id === product.id) {
             return {
               ...item,
-              quantity: item.quantity + 1,
+              // quantity: item.quantity + 1,
+              quantity: quantityForProduct + 1,
             };
           }
 
@@ -29,8 +40,10 @@ export default function App() {
         })
       );
     } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: quantityForProduct }]);
     }
+
+    console.log(quantityForProduct);
   }
 
   function handleDelete(id) {
@@ -63,7 +76,8 @@ export default function App() {
       fullMessage
     )}`;
 
-    window.open(url, "_blank");
+    // window.open(url, "_blank");
+    console.log(url, fullMessage);
   }
 
   return (
@@ -76,6 +90,10 @@ export default function App() {
         cart={cart}
         handleDelete={handleDelete}
         handleWhatsappCheckout={handleWhatsappCheckout}
+        quantityForProduct={quantityForProduct}
+        setQuantityForProduct={setQuantityForProduct}
+        handleQuantityReduction={handleQuantityReduction}
+        handleQuantityAddition={handleQuantityAddition}
       />
     </div>
   );
@@ -89,8 +107,24 @@ function Nav() {
       <nav className="middle-header-nav">
         <ul>
           <li>Home</li>
-          <li>Shop</li>
-          <li>Categories</li>
+          <li
+            onClick={() => {
+              document
+                .getElementById("shop")
+                .scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Shop
+          </li>
+          <li
+            onClick={() => {
+              document
+                .getElementById("categories")
+                .scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Categories
+          </li>
           <li>About Us</li>
           <li>Contact</li>
         </ul>
@@ -98,7 +132,15 @@ function Nav() {
 
       <div className="right-header">
         <h4>Cart</h4>
-        <button>I Want To Buy These</button>
+        <button
+          onClick={() => {
+            document
+              .getElementById("shop")
+              .scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          I Want To Buy These
+        </button>
       </div>
     </header>
   );
@@ -122,7 +164,7 @@ function Hero() {
 
 function Categories() {
   return (
-    <div className="categories-section">
+    <div className="categories-section" id="categories">
       <h1>Shop by Category</h1>
 
       <div className="category-list">
@@ -143,6 +185,10 @@ function ProductPlusCart({
   cart,
   handleDelete,
   handleWhatsappCheckout,
+  quantityForProduct,
+  setQuantityForProduct,
+  handleQuantityReduction,
+  handleQuantityAddition,
 }) {
   return (
     <div className="product-plus-cart">
@@ -151,13 +197,17 @@ function ProductPlusCart({
         cart={cart}
         handleDelete={handleDelete}
         handleWhatsappCheckout={handleWhatsappCheckout}
+        quantityForProduct={quantityForProduct}
+        setQuantityForProduct={setQuantityForProduct}
+        handleQuantityReduction={handleQuantityReduction}
+        handleQuantityAddition={handleQuantityAddition}
       />
     </div>
   );
 }
 function ProductList({ handleAddToCart }) {
   return (
-    <div className="product-list-box">
+    <div className="product-list-box" id="shop">
       <header className="product-list-header">
         <h1>Featured Products</h1>
         <p>View All</p>
@@ -183,7 +233,15 @@ function ProductList({ handleAddToCart }) {
   );
 }
 
-function Cart({ cart, handleDelete, handleWhatsappCheckout }) {
+function Cart({
+  cart,
+  handleDelete,
+  handleWhatsappCheckout,
+  quantityForProduct,
+  setQuantityForProduct,
+  handleQuantityReduction,
+  handleQuantityAddition,
+}) {
   console.log(cart);
 
   const subTotalCalc = cart.reduce((acc, item) => {
@@ -212,14 +270,21 @@ function Cart({ cart, handleDelete, handleWhatsappCheckout }) {
               </div>
 
               <p className="product-selected-quantity">
-                Quantity: {item.quantity}
+                Quantity: {console.log(item.quantity)}
               </p>
 
               <p className="product-selected-price">
                 ${item.price * item.quantity}
               </p>
 
-              <button>1+2</button>
+              <div className="quantity-selection"></div>
+              <div>
+                <div className="steps-count">
+                  <button onClick={handleQuantityReduction}>-</button>
+                  <p>{quantityForProduct}</p>
+                  <button onClick={handleQuantityAddition}>+</button>
+                </div>
+              </div>
             </div>
           </div>
         ))}
