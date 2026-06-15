@@ -58,3 +58,26 @@ export const categoriesList = [
   { name: "Perfumes", image: require("./Pictures/images23.jpeg") },
   { name: "Gadgets", image: require("./Pictures/images25.jpeg") },
 ];
+
+export const aboutInfo = [
+  {
+    image: require("./Pictures/images22.jpeg"),
+    type: "Easy Ordering",
+    text: "Select your favorite items and send your order",
+  },
+  {
+    image: require("./Pictures/images22.jpeg"),
+    type: "Easy Ordering",
+    text: "Select your favorite items and send your order",
+  },
+  {
+    image: require("./Pictures/images22.jpeg"),
+    type: "Easy Ordering",
+    text: "Select your favorite items and send your order",
+  },
+  {
+    image: require("./Pictures/images22.jpeg"),
+    type: "Easy Ordering",
+    text: "Select your favorite items and send your order",
+  },
+];

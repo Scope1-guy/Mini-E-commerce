@@ -1,18 +1,38 @@
 import { useState } from "react";
 import cart from "./asset/cart.png";
-import { productList, categoriesList } from "./products.js";
+import { productList, categoriesList, aboutInfo } from "./products.js";
 
 export default function App() {
   const [cart, setCart] = useState([]);
 
-  const [quantityForProduct, setQuantityForProduct] = useState(1);
+  function handleQuantityReduction(id) {
+    setCart(
+      cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
 
-  function handleQuantityReduction() {
-    setQuantityForProduct(quantityForProduct - 1);
+        return item;
+      })
+    );
   }
 
-  function handleQuantityAddition() {
-    setQuantityForProduct(quantityForProduct + 1);
+  function handleQuantityAddition(id) {
+    setCart(
+      cart.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+
+        return item;
+      })
+    );
   }
 
   function handleAddToCart(product) {
@@ -31,8 +51,8 @@ export default function App() {
           if (item.id === product.id) {
             return {
               ...item,
-              // quantity: item.quantity + 1,
-              quantity: quantityForProduct + 1,
+              quantity: item.quantity + 1,
+              // quantity: quantityForProduct + 1,
             };
           }
 
@@ -40,10 +60,8 @@ export default function App() {
         })
       );
     } else {
-      setCart([...cart, { ...product, quantity: quantityForProduct }]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
-
-    console.log(quantityForProduct);
   }
 
   function handleDelete(id) {
@@ -90,11 +108,10 @@ export default function App() {
         cart={cart}
         handleDelete={handleDelete}
         handleWhatsappCheckout={handleWhatsappCheckout}
-        quantityForProduct={quantityForProduct}
-        setQuantityForProduct={setQuantityForProduct}
         handleQuantityReduction={handleQuantityReduction}
         handleQuantityAddition={handleQuantityAddition}
       />
+      <About />
     </div>
   );
 }
@@ -270,7 +287,7 @@ function Cart({
               </div>
 
               <p className="product-selected-quantity">
-                Quantity: {console.log(item.quantity)}
+                Quantity: {item.quantity}
               </p>
 
               <p className="product-selected-price">
@@ -280,9 +297,20 @@ function Cart({
               <div className="quantity-selection"></div>
               <div>
                 <div className="steps-count">
-                  <button onClick={handleQuantityReduction}>-</button>
-                  <p>{quantityForProduct}</p>
-                  <button onClick={handleQuantityAddition}>+</button>
+                  <button
+                    onClick={() => {
+                      handleQuantityReduction(item.id);
+                    }}
+                  >
+                    -
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleQuantityAddition(item.id);
+                    }}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             </div>
@@ -301,6 +329,27 @@ function Cart({
           This will open Whatsapp with your order details.
         </div>
       </div>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div id="About">
+      {aboutInfo.map((about) => {
+        return (
+          <div key={about.type}>
+            <div>
+              <img src={about.image} alt={about.type} />
+            </div>
+
+            <div>
+              <h3>{about.type}</h3>
+              <p>{about.text}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
