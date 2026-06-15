@@ -301,3 +301,7 @@ code {
   font-size: 25px;
   font-weight: 700;
 }
+
+#About {
+  display: none;
+}

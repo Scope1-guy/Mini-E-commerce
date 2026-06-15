@@ -94,8 +94,8 @@ export default function App() {
       fullMessage
     )}`;
 
-    // window.open(url, "_blank");
-    console.log(url, fullMessage);
+    window.open(url, "_blank");
+    // console.log(url, fullMessage);
   }
 
   return (
