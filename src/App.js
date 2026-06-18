@@ -136,7 +136,7 @@ function Nav({ totalItems, menuOpen, setMenuOpen, cartOpen, setCartOpen }) {
           className="cart-toggle-btn"
           onClick={() => setCartOpen(!cartOpen)}
         >
-          🛒 Cart{" "}
+          🛒Cart{" "}
           {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
         </button>
         <button
@@ -441,7 +441,7 @@ function Footer() {
 
         <div className="footer-contact">
           <h4>Contact Us</h4>
-          <p>📍 Abuja, Nigeria</p>
+          <p>📍 Lagos, Nigeria</p>
           <p>📞 +234 814 139 6108</p>
           <p>📧 shopease@gmail.com</p>
           <div className="social-icons">

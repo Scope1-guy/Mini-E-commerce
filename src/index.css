@@ -8,6 +8,8 @@
 }
 
 :root {
+  --hero-bg-light: rgb(247, 242, 196);
+  --hero-bg: rgb(255, 252, 246);
   --navy: #010c3a;
   --navy-light: #0d1f6b;
   --gold: #d4a017;
@@ -52,7 +54,7 @@ body {
 }
 
 .logo {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 800;
   color: var(--navy);
   letter-spacing: -0.5px;
@@ -67,7 +69,7 @@ body {
 .nav-links ul li {
   padding: 8px 14px;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--navy);
   cursor: pointer;
@@ -91,7 +93,7 @@ body {
   border: 2px solid var(--navy);
   background: transparent;
   color: var(--navy);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
@@ -123,7 +125,7 @@ body {
   background: var(--navy);
   border: none;
   color: var(--white);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
@@ -167,15 +169,19 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--hero-bg) 0%,
+    var(--hero-bg-light) 100%
+  );
   color: var(--white);
-  padding: 60px 48px 0 64px;
+  padding: 60px 48px 20px 64px;
   overflow: hidden;
   min-height: 400px;
 }
 
 .hero-eyebrow {
-  font-size: 14px;
+  font-size: 19px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -189,17 +195,17 @@ body {
 }
 
 .hero-text h1 {
-  font-size: clamp(32px, 5vw, 58px);
+  font-size: clamp(33px, 5vw, 59px);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 16px;
-  color: var(--white);
+  color: rgb(3, 0, 41);
 }
 
 .hero-sub {
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(8, 12, 46, 0.8);
   margin-bottom: 28px;
   max-width: 420px;
 }
@@ -211,8 +217,8 @@ body {
 }
 
 .hero-buttons .cta-btn {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--navy);
+  color: white;
   font-size: 16px;
   padding: 14px 28px;
 }
@@ -221,9 +227,9 @@ body {
   background: #e6b520;
 }
 
-.hero-buttons .cta-outline {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: var(--white);
+.cta-outline {
+  border-color: rgba(0, 8, 36, 0.5);
+  color: var(--navy);
 }
 
 .hero-buttons .cta-outline:hover {
@@ -262,7 +268,7 @@ body {
 
 /* ===== CATEGORIES ===== */
 .categories-section {
-  padding: 48px 32px 24px;
+  padding: 25px 32px 24px;
   background: var(--white);
 }
 

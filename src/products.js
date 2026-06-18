@@ -30,15 +30,15 @@ export const productList = [
     name: "Classic Sneakers",
     price: 45000,
     category: "Shoes",
-    image: require("./Pictures/images5.jpeg"),
+    image: require("./Pictures/images.jpeg"),
   },
-  {
-    id: 4,
-    name: "Sport Running Shoes",
-    price: 55000,
-    category: "Shoes",
-    image: require("./Pictures/images7.jpeg"),
-  },
+  // {
+  //   id: 4,
+  //   name: "Sport Running Shoes",
+  //   price: 55000,
+  //   category: "Shoes",
+  //   image: require("./Pictures/images7.jpeg"),
+  // },
 
   // BAGS
   {
@@ -53,14 +53,14 @@ export const productList = [
     name: "Luxury Tote Bag",
     price: 48000,
     category: "Bags",
-    image: require("./Pictures/images22.jpeg"),
+    image: require("./Pictures/images7.jpeg"),
   },
   {
     id: 7,
     name: "Mini Crossbody Bag",
     price: 22000,
     category: "Bags",
-    image: require("./Pictures/images19.jpeg"),
+    image: require("./Pictures/images5.jpeg"),
   },
 
   // WATCHES
@@ -131,13 +131,13 @@ export const productList = [
     category: "Accessories",
     image: require("./Pictures/images21.jpeg"),
   },
-  {
-    id: 17,
-    name: "Leather Belt",
-    price: 8000,
-    category: "Accessories",
-    image: require("./Pictures/images12.jpeg"),
-  },
+  // {
+  //   id: 17,
+  //   name: "Leather Belt",
+  //   price: 8000,
+  //   category: "Accessories",
+  //   image: require("./Pictures/images12.jpeg"),
+  // },
 
   // PERFUMES
   {
@@ -152,15 +152,15 @@ export const productList = [
     name: "Floral Mist Spray",
     price: 18000,
     category: "Perfumes",
-    image: require("./Pictures/images24.jpeg"),
+    image: require("./Pictures/images22.jpeg"),
   },
-  {
-    id: 20,
-    name: "Arabian Night Oud",
-    price: 35000,
-    category: "Perfumes",
-    image: require("./Pictures/images25.jpeg"),
-  },
+  // {
+  //   id: 20,
+  //   name: "Arabian Night Oud",
+  //   price: 35000,
+  //   category: "Perfumes",
+  //   image: require("./Pictures/images25.jpeg"),
+  // },
 
   // GADGETS
   {
@@ -175,15 +175,15 @@ export const productList = [
     name: "Wireless Earbuds",
     price: 22000,
     category: "Gadgets",
-    image: require("./Pictures/images13.jpeg"),
+    image: require("./Pictures/images24.jpeg"),
   },
-  {
-    id: 23,
-    name: "Smart Power Bank",
-    price: 14000,
-    category: "Gadgets",
-    image: require("./Pictures/images.jpeg"),
-  },
+  // {
+  //   id: 23,
+  //   name: "Smart Power Bank",
+  //   price: 14000,
+  //   category: "Gadgets",
+  //   image: require("./Pictures/images.jpeg"),
+  // },
 ];
 
 export const aboutInfo = [
